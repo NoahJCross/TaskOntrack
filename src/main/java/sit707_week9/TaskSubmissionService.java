@@ -20,8 +20,12 @@ public class TaskSubmissionService {
      * @param title The title of the task
      * @param content The task content or submission
      * @return The submitted task
+     * @throws IllegalArgumentException if content is null or empty
      */
     public Task submitTask(int studentId, String title, String content) {
+        if (content == null || content.trim().isEmpty()) {
+            throw new IllegalArgumentException("Task content cannot be null or empty");
+        }
         return taskRepository.saveTask(studentId, title, content);
     }
     

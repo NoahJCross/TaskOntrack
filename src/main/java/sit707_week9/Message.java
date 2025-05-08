@@ -13,6 +13,12 @@ public class Message {
     private LocalDateTime timestamp;
     
     public Message(int id, String sender, String content) {
+        if (sender == null || sender.trim().isEmpty()) {
+            throw new IllegalArgumentException("Sender cannot be null or empty");
+        }
+        if (content == null || content.trim().isEmpty()) {
+            throw new IllegalArgumentException("Content cannot be null or empty");
+        }
         this.id = id;
         this.sender = sender;
         this.content = content;
