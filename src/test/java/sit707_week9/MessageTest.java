@@ -21,7 +21,7 @@ public class MessageTest {
         Message message = new Message(id, sender, content);
         
         // Assert
-        assertEquals("ID should match", 999, message.getId());
+        assertEquals("ID should match", id, message.getId());
         assertEquals("Sender should match", sender, message.getSender());
         assertEquals("Content should match", content, message.getContent());
         assertNotNull("Timestamp should not be null", message.getTimestamp());
@@ -50,7 +50,7 @@ public class MessageTest {
         Message message = new Message(1, "", "Test message");
         
         // Assert
-        assertEquals("Empty sender should be preserved", "not_empty", message.getSender());
+        assertEquals("Empty sender should be preserved", "", message.getSender());
     }
     
     @Test
